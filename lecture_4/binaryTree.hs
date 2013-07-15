@@ -1,12 +1,7 @@
--- What is a binary tree?
--- has two possible states:
--- []
--- [x, leftTree, rightTree]
-
-data Tree a = Value a (Tree a) (Tree a) 
-          | EmptyTree
+data Tree a = EmptyTree 
+            | NodeValue a (Tree a) (Tree a) 
             deriving (Show, Eq)
-
+ 
 --add :: Tree -> Int
---add EmptyTree = 0
---add t = (+) value t  (add )
+add (EmptyTree)       = 0
+add (NodeValue a l r) =  a + add (l) + add (r)
